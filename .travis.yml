@@ -1,3 +1,5 @@
+- psql -c 'create database travis_ci_test;' -U postgres
+
 language: ruby
 rvm:
   - 2.0.0-p481
