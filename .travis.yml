@@ -3,3 +3,11 @@ rvm:
 - 2.0.0-p481
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: aDJji8deQr1eT35RKR7vIeaW/mKKCQBGNw/0HhJH+oLQsMRUSrN24aBWhkU15xoUp5xHq5h8ci7YLcvfjnBMi8o2PXGlw/VMZ/cAn9Na+hHdDv83RLioaHADU3pEe4YcGEPSxTQPUHJRWMMlhn0y0bJK03cJBYphoa6yIAl7aQQ=
+  app: salty-stream-8167
+  run:
+    - "rake db:migrate"
+    - restart
